@@ -18,11 +18,11 @@ description: Install Docker Desktop
 - Docker é uma ferramenta que permite criar, executar e gerenciar contêineres. Um contêiner é como uma "caixa leve" que contém tudo que a aplicação precisa: código, bibliotecas, dependências e configurações — tudo isolado do sistema operacional da máquina host.
 
 
-**Imagem vs Contêiner**
+**Imagem vs Contêiner:**
 - Imagem: É o "molde" de um contêiner. Contém o sistema de arquivos, bibliotecas e dependências da aplicação.
 - Contêiner: É uma instância em execução de uma imagem.
 
-**Principais comandos do Docker**
+**Principais comandos do Docker:**
 ```
 docker build -t nome-imagem .     # Cria uma imagem a partir de um Dockerfile
 docker run nome-imagem            # Roda um contêiner a partir da imagem
@@ -34,7 +34,7 @@ docker rm id_ou_nome              # Remove um contêiner
 docker rmi nome-imagem            # Remove uma imagem
 ```
 
-**Dockerfile**
+**Dockerfile:**
 - É um arquivo de texto com instruções para montar uma imagem. Exemplo básico:
 
 ```
@@ -47,7 +47,7 @@ RUN npm install
 CMD ["node", "index.js"]
 ```
 
-**Docker Hub**
+**Docker Hub:**
 É o repositório público onde você pode buscar ou publicar imagens Docker, como o GitHub é para código.
 
 Exemplo:
@@ -57,10 +57,10 @@ Exemplo:
 - docker push usuario/imagem   # Envia sua imagem para o Docker Hub
 ```
 
-**Docker Compose**
+**Docker Compose:**
 Ferramenta para definir e rodar múltiplos contêineres com um só comando. Usa um arquivo docker-compose.yaml para configurar serviços (como banco + backend + frontend).
 
-**Volumes**
+**Volumes:**
 São usados para persistir dados fora do contêiner, evitando perda de dados ao reiniciar.
 
 ```
@@ -68,14 +68,14 @@ docker volume create meu-volume
 docker run -v meu-volume:/app/data nome-imagem
 ```
 
-**Portas**
+**Portas:**
 Você pode mapear portas do host para o contêiner:
 
 ```
 docker run -p 8080:80 nginx     # Isso expõe a porta 80 do contêiner na 8080 do seu computador
 ```
 
-**Benefícios do Docker**
+**Benefícios do Docker:**
 - Reprodutibilidade do ambiente
 - Portabilidade
 - Isolamento
@@ -112,7 +112,8 @@ O DevSecOps promove a inclusão de segurança desde o início do ciclo de desenv
 - Com boas práticas (usuário não-root, volumes seguros), o risco de escape é minimizado.
 
 ```
-RUN adduser --disabled-password appuser   # Exemplo de boas práticas
+# Exemplo de boas práticas
+RUN adduser --disabled-password appuser   
 USER appuser
 ```
 
