@@ -3,8 +3,8 @@ title: Install Docker Desktop
 description: Install Docker Desktop 
 ---
 
-## Step-01: Introduction
-1. Install Docker Desktop
+## Step-01: Introdução
+1. Instalar o Docker Desktop / ou rodar na CLI
 
 ## Step-02: Docker Desktop - Pricing, SignUp, Download
 - [Docker Desktop Pricing](https://www.docker.com/pricing/)
@@ -53,8 +53,8 @@ CMD ["node", "index.js"]
 Exemplo:
 
 ```
-- docker pull nginx            # Baixa a imagem oficial do Nginx
-- docker push usuario/imagem   # Envia sua imagem para o Docker Hub
+docker pull nginx            # Baixa a imagem oficial do Nginx
+docker push usuario/imagem   # Envia sua imagem para o Docker Hub
 ```
 
 **Docker Compose:**
