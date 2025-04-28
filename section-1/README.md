@@ -43,6 +43,7 @@ WORKDIR /app
 COPY . .
 RUN npm install
 CMD ["node", "index.js"]```
+```
 
 **Docker Hub**
 É o repositório público onde você pode buscar ou publicar imagens Docker, como o GitHub é para código.
