@@ -36,13 +36,14 @@ description: Install Docker Desktop
 **Dockerfile**
 - É um arquivo de texto com instruções para montar uma imagem. Exemplo básico:
 
-```Dockerfile
+```
+Dockerfile
 
 FROM node:18
 WORKDIR /app
 COPY . .
 RUN npm install
-CMD ["node", "index.js"]```
+CMD ["node", "index.js"]
 ```
 
 **Docker Hub**
