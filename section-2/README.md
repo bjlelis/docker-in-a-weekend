@@ -144,7 +144,3 @@ docker rmi <IMAGE-ID>
 docker rmi <IMAGE-NAME>:<IMAGE-TAG>
 
 ```
-
-
-
-
