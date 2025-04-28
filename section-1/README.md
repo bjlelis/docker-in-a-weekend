@@ -24,14 +24,14 @@ description: Install Docker Desktop
 
 **Principais comandos do Docker**
 
-docker build -t nome-imagem .     # Cria uma imagem a partir de um Dockerfile
-docker run nome-imagem            # Roda um contêiner a partir da imagem
-docker ps                         # Lista contêineres em execução
-docker ps -a                      # Lista todos os contêineres (mesmo parados)
-docker images                     # Lista imagens disponíveis
-docker stop id_ou_nome            # Para um contêiner
-docker rm id_ou_nome              # Remove um contêiner
-docker rmi nome-imagem            # Remove uma imagem
+- docker build -t nome-imagem .     # Cria uma imagem a partir de um Dockerfile
+- docker run nome-imagem            # Roda um contêiner a partir da imagem
+- docker ps                         # Lista contêineres em execução
+- docker ps -a                      # Lista todos os contêineres (mesmo parados)
+- docker images                     # Lista imagens disponíveis
+- docker stop id_ou_nome            # Para um contêiner
+- docker rm id_ou_nome              # Remove um contêiner
+- docker rmi nome-imagem            # Remove uma imagem
 
 **Dockerfile**
 - É um arquivo de texto com instruções para montar uma imagem. Exemplo básico:
@@ -39,9 +39,13 @@ docker rmi nome-imagem            # Remove uma imagem
 Dockerfile
 
 FROM node:18
+
 WORKDIR /app
+
 COPY . .
+
 RUN npm install
+
 CMD ["node", "index.js"]
 
 **Docker Hub**
