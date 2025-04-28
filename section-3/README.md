@@ -32,7 +32,7 @@ Neste guia iremos:
 - Refer to the [NGINX Docker Image on Docker Hub](https://hub.docker.com/_/nginx).
 
 ```
-# Run noNginx Docker Image
+# Run no Nginx Docker Image
 docker run --name <CONTAINER-NAME> -p <HOST_PORT>:<CONTAINER_PORT> -d <IMAGE_NAME>:<TAG>
 
 # Listar running containers
