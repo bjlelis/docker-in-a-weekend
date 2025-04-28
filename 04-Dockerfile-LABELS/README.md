@@ -87,7 +87,7 @@ COPY index.html /usr/share/nginx/html
 
 ## Passo 2: Construir a Imagem Docker e Executá-la
 
-```
+```bash
 # Mude para o diretório que contém seu Dockerfile
 cd Dockerfiles
 
@@ -117,21 +117,66 @@ http://localhost:8080
 
 `jq` é um processador de JSON leve e flexível para linha de comando, útil para analisar a saída JSON de comandos como `docker inspect`.
 
+**Para macOS:**
+
+```bash
+brew install jq
+jq --version
+```
 
 **Para Linux (Ubuntu/Debian):**
 
-```
+```bash
 sudo apt-get update
 sudo apt-get install jq
 jq --version
 ```
 
+**Para Linux (CentOS/RHEL):**
+
+```bash
+sudo yum install epel-release
+sudo yum install jq
+jq --version
+```
+
+**Para Linux (Fedora):**
+
+```bash
+sudo dnf install jq
+jq --version
+```
+
+**Para Outras Distribuições Linux:**
+
+```bash
+wget -O jq https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64
+chmod +x ./jq
+sudo mv jq /usr/local/bin
+jq --version
+```
+
+**Para Windows (Usando Chocolatey):**
+
+```bash
+choco install jq
+jq --version
+```
+
+**Para Windows (Instalação Manual):**
+
+1. Baixe o executável de [jq Releases](https://github.com/stedolan/jq/releases).
+2. Escolha `jq-win64.exe` (ou `jq-win32.exe` para sistemas 32-bit).
+3. Renomeie o arquivo baixado para `jq.exe`.
+4. Mova-o para uma pasta no PATH do sistema (ex.: `C:\Windows`).
+
+---
 
 ## Passo 4: Comandos de Inspeção de Imagem Docker
 
 Use `docker inspect` para obter informações detalhadas sobre imagens Docker.
 
-```
+```bash
 # Inspecione a imagem Docker
 docker image inspect [IMAGE-NAME]:[IMAGE-TAG]
 
@@ -163,7 +208,7 @@ docker image inspect --format='{{json .Config.Labels}}' demo4-dockerfile-labels:
 
 Use `docker inspect` para obter informações detalhadas sobre containers Docker.
 
-```
+```bash
 # Inspecione o container Docker
 docker inspect [CONTAINER-NAME or CONTAINER-ID]
 
@@ -199,7 +244,7 @@ docker inspect --format='{{json .NetworkSettings}}' mylabels-demo | jq
 
 ## Passo 6: Parar e Remover Container e Imagens
 
-```
+```bash
 # Pare e remova o container
 docker rm -f mylabels-demo
 
@@ -224,3 +269,24 @@ Você aprendeu a:
 
 ---
 
+## Notas Adicionais
+
+- **Substitua os Marcadores:** Lembre-se de substituir `[IMAGE-NAME]`, `[IMAGE-TAG]`, `[DOCKER_USERNAME]`, `[CONTAINER-NAME]` e outros marcadores pelos seus valores reais.
+- **Usuário do Docker Hub:** Certifique-se de estar logado com sua conta do Docker Hub ao enviar imagens.
+- **Labels:** Labels são pares chave-valor que permitem adicionar metadados às suas imagens Docker. Eles seguem a [Especificação de Formato de Imagem OCI](https://github.com/opencontainers/image-spec/blob/master/annotations.md).
+- **Uso do `jq`:** A ferramenta `jq` é usada para analisar a saída JSON, facilitando a leitura e extração de informações específicas de comandos como `docker inspect`.
+
+---
+
+## Recursos Adicionais
+
+- [Documentação do Docker](https://docs.docker.com/)
+- [Referência do Dockerfile](https://docs.docker.com/engine/reference/builder/)
+- [Melhores Práticas para Escrever Dockerfiles](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
+- [Comando Docker Inspect](https://docs.docker.com/engine/reference/commandline/inspect/)
+- [Especificação de Formato de Imagem OCI](https://github.com/opencontainers/image-spec/blob/master/annotations.md)
+- [Manual do jq](https://stedolan.github.io/jq/manual/)
+
+---
+
+**Feliz Dockerização!**
