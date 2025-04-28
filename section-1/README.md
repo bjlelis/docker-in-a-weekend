@@ -23,15 +23,16 @@ description: Install Docker Desktop
 - Contêiner: É uma instância em execução de uma imagem.
 
 **Principais comandos do Docker**
-
-- docker build -t nome-imagem .     # Cria uma imagem a partir de um Dockerfile
-- docker run nome-imagem            # Roda um contêiner a partir da imagem
-- docker ps                         # Lista contêineres em execução
-- docker ps -a                      # Lista todos os contêineres (mesmo parados)
-- docker images                     # Lista imagens disponíveis
-- docker stop id_ou_nome            # Para um contêiner
-- docker rm id_ou_nome              # Remove um contêiner
-- docker rmi nome-imagem            # Remove uma imagem
+```
+docker build -t nome-imagem .     # Cria uma imagem a partir de um Dockerfile
+docker run nome-imagem            # Roda um contêiner a partir da imagem
+docker ps                         # Lista contêineres em execução
+docker ps -a                      # Lista todos os contêineres (mesmo parados)
+docker images                     # Lista imagens disponíveis
+docker stop id_ou_nome            # Para um contêiner
+docker rm id_ou_nome              # Remove um contêiner
+docker rmi nome-imagem            # Remove uma imagem
+```
 
 **Dockerfile**
 - É um arquivo de texto com instruções para montar uma imagem. Exemplo básico:
@@ -51,8 +52,10 @@ CMD ["node", "index.js"]
 
 Exemplo:
 
+```
 - docker pull nginx            # Baixa a imagem oficial do Nginx
 - docker push usuario/imagem   # Envia sua imagem para o Docker Hub
+```
 
 **Docker Compose**
 Ferramenta para definir e rodar múltiplos contêineres com um só comando. Usa um arquivo docker-compose.yaml para configurar serviços (como banco + backend + frontend).
@@ -60,13 +63,17 @@ Ferramenta para definir e rodar múltiplos contêineres com um só comando. Usa 
 **Volumes**
 São usados para persistir dados fora do contêiner, evitando perda de dados ao reiniciar.
 
+```
 docker volume create meu-volume
 docker run -v meu-volume:/app/data nome-imagem
+```
 
 **Portas**
 Você pode mapear portas do host para o contêiner:
 
+```
 docker run -p 8080:80 nginx     # Isso expõe a porta 80 do contêiner na 8080 do seu computador
+```
 
 **Benefícios do Docker**
 - Reprodutibilidade do ambiente
@@ -104,8 +111,10 @@ O DevSecOps promove a inclusão de segurança desde o início do ciclo de desenv
 - Contêineres isolam processos da aplicação.
 - Com boas práticas (usuário não-root, volumes seguros), o risco de escape é minimizado.
 
+```
 RUN adduser --disabled-password appuser   # Exemplo de boas práticas
 USER appuser
+```
 
 **Compliance e auditoria:**
 - Imagens são versionadas e podem ser assinadas com Docker Content Trust (DCT).
