@@ -1,0 +1,27 @@
+#######################################################
+# WORKDIR Sample: 1
+WORKDIR /opt
+WORKDIR apps
+WORKDIR myapp1
+RUN pwd
+
+# RESULT: /opt/apps/myapp1
+#######################################################
+# WORKDIR Sample: 2
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy requirements and install dependencies
+COPY requirements.txt requirements.txt 
+
+# Copy the application code
+COPY app.py .
+
+# Copy the templates directory
+COPY templates/ ./templates/
+
+# RESULT: 
+# 1. requirements.txt will be copied to /app
+# 2. app.py will be copied to /app
+# 3. Files from templates folder will be copied to /app/templates     
+#######################################################

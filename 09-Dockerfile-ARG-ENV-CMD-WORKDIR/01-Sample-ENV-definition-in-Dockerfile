@@ -1,0 +1,12 @@
+# Environment Variables - KEY VALUE Pairs
+ENV NAME="Kalyan Reddy"
+ENV SCHOOL=ABC\ Public\ School
+ENV CLASS=fifth
+
+# Multiple Key Value variables to be set at one time
+ENV NAME="Kalyan Reddy" SCHOOL=ABC\ Public\ School \
+    CLASS=fifth
+
+# Alternate Syntax (NOT RECOMMENDED)
+ENV MY_VAR my-value    
+
