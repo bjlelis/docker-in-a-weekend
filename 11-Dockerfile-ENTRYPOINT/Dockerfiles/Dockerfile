@@ -8,4 +8,4 @@ LABEL org.opencontainers.image.description="A Dockerfile demo illustrating the u
 LABEL org.opencontainers.image.version="1.0"
 
 # Always run the echo command as the entrypoint
-ENTRYPOINT ["echo", "Kalyan"]
+ENTRYPOINT ["echo", "Bruno Lelis"]
