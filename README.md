@@ -1,7 +1,5 @@
 # [Docker em um Fim de Semana: 40 Demonstrações Práticas para Aprendizes de DevOps](https://links.stacksimplify.com/docker-in-a-weekend-40-practical-demos-for-devops)
 
-[![Imagem](docker-1.png "Docker em um Fim de Semana: 40 Demonstrações Práticas para Aprendizes de DevOps")](https://links.stacksimplify.com/docker-in-a-weekend-40-practical-demos-for-devops)
-
 ## [Detalhes do Curso](https://links.stacksimplify.com/docker-in-a-weekend-40-practical-demos-for-devops)
 - **Título:** [Docker em um Fim de Semana: 40 Demonstrações Práticas para Aprendizes de DevOps](https://links.stacksimplify.com/docker-in-a-weekend-40-practical-demos-for-devops)
 - **Subtítulo:** Domine Dockerfiles, Docker Build, Docker Compose, Aplicativos Multi-Contêiner e Builds Multi-Stage com 40 Demonstrações Práticas
