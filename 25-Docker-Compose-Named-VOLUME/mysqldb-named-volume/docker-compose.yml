@@ -1,0 +1,22 @@
+name: ums-stack
+services:
+  mysql:
+    container_name: ums-mysqldb
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: dbpassword11
+      MYSQL_DATABASE: webappdb
+    ports:
+      - "3306:3306"
+    volumes:
+      - mydb:/var/lib/mysql
+
+volumes:
+  mydb:
+    name: ums-mysqldb-data-v1  # Explicitly name the volume
+    driver: local  # Optional, as local is the default driver
+    labels:
+      project: "ums-stack"           # Label to indicate the project name
+      component: "mysql-database"    # Label to specify that this volume is for the MySQL database
+      purpose: "persistent-storage"  # Label to indicate the purpose of this volume (persistent storage for the database)
