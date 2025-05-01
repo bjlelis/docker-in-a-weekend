@@ -1,0 +1,18 @@
+services:
+  web:
+    container_name: mywebserver2
+    build:
+      context: ./web  # The path to the Dockerfile, assumed to be in the same directory as docker-compose.yml
+      dockerfile: Dockerfile  # The Dockerfile to use for building the image 
+    develop:
+      watch: 
+        # Sync changes to static content
+        - path: ./web/html
+          action: sync
+          target: /usr/share/nginx/html 
+        # Sync changes to nginx.conf file
+        - path: ./web/nginx.conf
+          action: rebuild
+          target: /etc/nginx/nginx.conf     
+    ports:
+      - "8080:8080" 
