@@ -1,0 +1,9 @@
+services:
+  web:
+    image: my-python-app:latest  # Name of the Docker image
+    container_name: my-python-container  # Name of the container
+    build: 
+      context: ./python-app  
+      dockerfile: Dockerfile  # The Dockerfile to use for building the image 
+    ports:
+      - "5000:5000"
