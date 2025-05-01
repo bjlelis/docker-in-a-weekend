@@ -1,0 +1,68 @@
+name: ums-stack
+services:
+  web-nginx:
+    image: nginx:latest 
+    container_name: ums-nginx
+    ports:
+      - "8080:8080"  # NGINX listens on port 8080 of the host
+    depends_on:
+      - app-ums
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf  # Custom NGINX configuration
+    networks:
+      - frontend      
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/nginx-health"]  # Check if NGINX is responding
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      
+  app-ums:
+    image: ghcr.io/stacksimplify/usermgmt-webapp-v6:latest
+    ports:
+      - "8080"  # Only expose the container's port, let Docker choose the host port
+    deploy:
+      replicas: 1  # Scale the service to 3 instances       
+    depends_on:
+      - db-mysql
+    environment:
+      - DB_HOSTNAME=db-mysql
+      - DB_PORT=3306
+      - DB_NAME=webappdb
+      - DB_USERNAME=root
+      - DB_PASSWORD=dbpassword11
+    networks:
+      - frontend  
+      - backend
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]   # Assuming /health is your app's health check endpoint
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  db-mysql:
+    container_name: ums-mysqldb
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: dbpassword11
+      MYSQL_DATABASE: webappdb
+    ports:
+      - "3306:3306"
+    volumes:
+      - mydb:/var/lib/mysql
+    networks:
+      - backend        
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-pdbpassword11"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+volumes:
+  mydb:
+
+networks:
+  frontend:
+  backend:
+
