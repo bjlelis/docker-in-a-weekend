@@ -1,0 +1,16 @@
+name: ums-stack
+services:
+  mysql:
+    container_name: ums-mysqldb
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: dbpassword11
+      MYSQL_DATABASE: webappdb
+    ports:
+      - "3306:3306"
+    volumes:
+      - mydb:/var/lib/mysql
+
+volumes:
+  mydb:
