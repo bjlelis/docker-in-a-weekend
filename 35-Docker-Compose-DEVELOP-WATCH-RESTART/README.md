@@ -243,4 +243,3 @@ Este recurso acelera significativamente os ciclos de desenvolvimento, eliminando
 
 ---
 
-**Feliz Dockerização!**
