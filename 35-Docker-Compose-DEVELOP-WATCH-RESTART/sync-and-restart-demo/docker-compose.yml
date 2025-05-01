@@ -1,0 +1,18 @@
+services:
+  web:
+    container_name: mywebserver1
+    build:
+      context: ./web  
+      dockerfile: Dockerfile  # The Dockerfile to use for building the image 
+    develop:
+      watch: 
+        # Sync changes to static content
+        - path: ./web/html
+          action: sync
+          target: /usr/share/nginx/html 
+        # Sync changes to nginx.conf file
+        - path: ./web/nginx.conf
+          action: sync+restart
+          target: /etc/nginx/nginx.conf     
+    ports:
+      - "8080:8080" 
