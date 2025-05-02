@@ -1,0 +1,15 @@
+{
+    "name": "multistage-node-app",
+    "version": "1.0.0",
+    "description": "A sample Node.js app with multistage Docker build",
+    "main": "index.js",
+    "scripts": {
+      "start": "node index.js"
+    },
+    "author": "KALYAN REDDY DAIDA",
+    "license": "ISC",
+      "dependencies": {
+      "express": "^4.18.2"
+    }
+  }
+  
